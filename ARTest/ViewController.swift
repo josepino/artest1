@@ -20,18 +20,25 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Set the view's delegate
         sceneView.delegate = self
     
-        // Creamos el cubo
-        let cube = SCNBox(width: 0.1, height: 0.1, length: 0.1, chamferRadius: 0.01)
+
+
+        // Creamos la esfera
+        let sphere = SCNSphere(radius: 20)
         
         // Creamos el material
         let material = SCNMaterial()
-        material.diffuse.contents = UIColor.red
-        cube.materials = [material]
+        
+        material.diffuse.contents = UIImage(named: "art.scnassets/sun.jpg")
+        
+        
+        
+        sphere.materials = [material]
+        
         
         // Creamos el nodo y ponemos su posicion en el espacio XYZ
         let node = SCNNode()
-        node.position = SCNVector3(x:0, y:1, z:-0.5)  // El eje Y es para subir un poquito y Z negativo es para que salga enfrente
-        node.geometry = cube
+        node.position = SCNVector3(x:0, y:100, z:-130)  // El eje Y es para subir un poquito y Z negativo es para que salga enfrente
+        node.geometry = sphere
         
         
         // Colocamos el nodo en la escena
